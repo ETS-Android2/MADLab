@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Patient Registration</string>
+    <string-array name="marital_items">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+    </string-array>
+</resources>
