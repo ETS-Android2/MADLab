@@ -4,18 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.widget.TextView;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         final EditText timeField = findViewById(R.id.timeField);
         final CheckBox smokingCheck = findViewById(R.id.smokingCheckBox);
         final CheckBox drinkingCheck = findViewById(R.id.drinkingCheckBox);
+        final EditText ageField = findViewById(R.id.ageField);
+        final EditText phoneField = findViewById(R.id.phoneField);
+        final EditText addressField = findViewById(R.id.addrField);
         final Button clearButton = findViewById(R.id.resetButton);
         final Button submitButton = findViewById(R.id.submitButton);
 
@@ -69,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
                     patientAddictions += "-NIL-";
                 }
 
+                String patientPhone = phoneField.getText().toString();
+                String patientAddress = addressField.getText().toString();
+                int patientAge = Integer.parseInt(ageField.getText().toString());
+
                 //Transfer the contents to the SubmitActivity class using an Intent
                 Intent submitIntent = new Intent(getApplicationContext(), SubmitActivity.class);
                 submitIntent.putExtra("patientName", patientName);
@@ -77,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
                 submitIntent.putExtra("patientMarital", patientMarital);
                 submitIntent.putExtra("patientTime", patientTime);
                 submitIntent.putExtra("patientAddictions", patientAddictions);
+                submitIntent.putExtra("patientAge", patientAge);
+                submitIntent.putExtra("patientPhone", patientPhone);
+                submitIntent.putExtra("patientAddress", patientAddress);
 
                 startActivity(submitIntent);
             }
@@ -93,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 timeField.setText("");
                 smokingCheck.setChecked(false);
                 drinkingCheck.setChecked(false);
+                ageField.setText("");
+                addressField.setText("");
+                phoneField.setText("");
             }
         });
 
