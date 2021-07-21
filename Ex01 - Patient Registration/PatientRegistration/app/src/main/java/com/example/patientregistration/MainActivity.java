@@ -2,15 +2,21 @@ package com.example.patientregistration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +37,44 @@ public class MainActivity extends AppCompatActivity {
         final EditText addressField = findViewById(R.id.addrField);
         final Button clearButton = findViewById(R.id.resetButton);
         final Button submitButton = findViewById(R.id.submitButton);
+
+        //Calendar instance for the DatePicker & TimePicker
+        final Calendar calendar = Calendar.getInstance();
+
+        dateField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                //Date Picker Dialog
+                DatePickerDialog datePicker = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        dateField.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    }
+                }, year, month, day);
+                datePicker.show();
+            }
+        });
+
+        timeField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minutes = calendar.get(Calendar.MINUTE);
+
+                //Time Picker Dialog
+                TimePickerDialog timePicker = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeField.setText(hourOfDay + ":" + minute);
+                    }
+                }, hour, minutes, false);
+                timePicker.show();
+            }
+        });
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             //define event for onClick of Submit Button
