@@ -1,0 +1,123 @@
+\documentclass[12pt, a4]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{color}
+
+%Syntax highlighting
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{onyx}{rgb}{0.06, 0.06, 0.06}
+
+
+\lstset{
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  breakatwhitespace=false,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=4,  
+  backgroundcolor=\color{white},   % choose the background color
+  commentstyle=\color{ao},    % comment style
+  keywordstyle=\color{amaranth},    % keyword style
+  stringstyle=\color{blue-violet},    % string literal style
+  numberstyle=\tiny\color{ballblue},	   % number style
+  basicstyle=\ttfamily\footnotesize\color{onyx} % size of fonts used for the code
+}
+
+%Document Header
+\title{\textbf{Department of CSE\\SSN College of Engineering}}
+\author{\textbf{Vishakan Subramanian - 18 5001 196 - Semester VII}}
+\date{07 October 2021}
+
+\begin{document}
+\maketitle
+\hrule
+\section*{\center{UCS 1711 - Mobile Application Development Lab}}
+\hrule
+\bigskip
+
+%Assignment Details
+\subsection*{\center{\textbf{Exercise 7: External Storage File I/O}}}
+\subsection*{\flushleft{Aim:}}
+\begin{flushleft}
+
+To develop a native application that reads and persistently writes content to a file stored in the external storage media of the device.
+
+\end{flushleft}
+
+%Code
+\newpage
+\subsection*{\flushleft{Code - External Storage: Main Activity:}}
+\begin{flushleft}
+\lstinputlisting[language = Java]{ExternalStorage/app/src/main/java/com/example/externalstorage/MainActivity.java}
+\end{flushleft}
+
+%Code
+\newpage
+\subsection*{\flushleft{Code - External Storage: Main Activity Layout:}}
+\begin{flushleft}
+\lstinputlisting[language = XML]{ExternalStorage/app/src/main/res/layout/activity_main.xml}
+\end{flushleft}
+
+%Code
+\newpage
+\subsection*{\flushleft{Code - External Storage: Android Manifest XML:}}
+\begin{flushleft}
+\lstinputlisting[language = XML]{ExternalStorage/app/src/main/AndroidManifest.xml}
+\end{flushleft}
+
+
+%Output
+\newpage
+\subsection*{\flushleft{Output: Main Screen:}}
+\begin{figure}[h]
+\centering
+\caption{Output: Main Screen.}
+\includegraphics[height=15cm, width=7.3cm]{ExternalStorage/Screenshots/Output-1.png}
+\end{figure}
+
+%Output
+\newpage
+\subsection*{\flushleft{Output: File Write:}}
+\begin{figure}[h]
+\centering
+\caption{Output: File Write.}
+\includegraphics[height=15cm, width=7.3cm]{ExternalStorage/Screenshots/Output-2.png}
+\end{figure}
+
+%Output
+\newpage
+\subsection*{\flushleft{Output: File Read:}}
+\begin{figure}[h]
+\centering
+\caption{Output: File Read.}
+\includegraphics[height=15cm, width=7.3cm]{ExternalStorage/Screenshots/Output-3.png}
+\end{figure}
+
+
+%Learning Outcome
+\newpage
+\subsection*{\flushleft{Learning Outcome:}}
+\begin{itemize}
+
+\item I learnt how to set application permissions for 
+\textbf{READ, WRITE \& MANAGE EXTERNAL STORAGE} using the AndroidManifest.xml file.
+\item I learnt how to obtain permissions from the user through the UI using \textbf{requestPermissions()} method under the \textbf{ActivityCompat} class.
+\item I learnt how to do \textbf{File Write \& File Read} using \textbf{File}, \textbf{FileOutputStream} and \textbf{BufferedReader} objects.
+\item I understood about the different types of exceptions that can be thrown by the usage of methods under these objects, like \textbf{FileNotFoundException \& IOException}.
+\item I understood how Android fine-grains its app permissions to get access to various resources like the SD Card, Location etc.
+\item I implemented the \textbf{File I/O} successfully and was able to view the created files via the File Explorer as well, which was persistently created under the \textbf{Android/data/app-package-name} directory.
+
+\end{itemize}
+
+
+\end{document}
